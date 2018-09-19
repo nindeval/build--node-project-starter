@@ -1,35 +1,7 @@
 const Router = require('express').Router;
 const apiRouter = Router()
-
-const fetchUsers = (request, response)=>{
-  const db = request.app.locals.db
-
-  db.select('*').from('users')
-    .then((userRecords)=>{
-      response.json(userRecords)
-    })
-}
-const fetchAbilityTypes = (request, response)=>{
-  const db = request.app.locals.db
-  db.select('*').from('ability_types')
-    .then((abilityTypesRecords)=>{
-      response.json(abilityTypesRecords)
-    })
-}
-const fetchUserAbilities = (request, response)=>{
-  const db = request.app.locals.db
-  db.select('*').from('user_abilities')
-    .then((userAilitiesRecords)=>{
-      response.json(userAbilitiesRecords)
-    })
-}
-const fetchInvitations = (request, response)=>{
-response.json([
-  {id: 1, inviting_user_id: 001, receiving_user_id: 001, ability_type_id: 001, recepted: false, rejected: false},
-  {id: 2, inviting_user_id: 002, receiving_user_id: 002, ability_type_id: 002, recepted: false, rejected: false},
-  {id: 3, inviting_user_id: 003, receiving_user_id: 003, ability_type_id: 003, recepted: false, rejected: false}
-])
-}
+const User = require('../models/User.js')
+const AbilityType = require('../models/AbilityType.js')
 
 
 apiRouter.get('/', (resquest, response)=>{
@@ -40,6 +12,63 @@ apiRouter.get('/', (resquest, response)=>{
     '/api/invitations' : 'Show invitations'
   })
 })
+
+const fetchUsers = (request, response)=>{
+  User.query()
+    .eager('theAbilityTypes')
+    .then((userRecords)=>{
+      response.status(200).json(userRecords)
+    })
+    .catch((err)=>{
+      console.log('Disculpa las molestias, estamos teniendo algunos problemas - Users');
+      var errorMessage = err.toString()
+      response.status(500).send(errorMessage)
+    })
+  // const db = request.app.locals.db
+  // db.select('*').from('users')
+  //   .then((Records)=>{
+  //     response.json(Records)
+  //   })
+}
+const fetchAbilityTypes = (request, response)=>{
+  AbilityType.query()
+    .eager('theUsers')
+    .then((abilityTypesRecords)=>{
+      response.status(200).json(abilityTypesRecords)
+    })
+    .catch((err)=>{
+      console.log('Disculpa las molestias, estamos teniendo algunos problemas - abilityType');
+      var errorMessage = err.toString()
+        response.status(500).send(errorMessage)
+    })
+  // const db = request.app.locals.db
+  // db.select('*').from('ability_types')
+  //   .then((abilityTypesRecords)=>{
+  //     response.json(abilityTypesRecords)
+  //   })
+}
+const fetchUserAbilities = (request, response)=>{
+  AbilityType.query()
+    .eager('theUsers')
+    .then((userAbilitiesRecords)=>{
+      response.status(200).json(userAbilitiesRecords)
+    })
+    .catch((err)=>{
+      console.log('Disculpa las molestias, estamos teniendo algunos problemas - userAbilityType');
+      var errorMessage = err.toString()
+        response.status(500).send(errorMessage)
+    })
+  // const db = request.app.locals.db
+  // db.select('*').from('user_abilities')
+  //   .then((userAbilitiesRecords)=>{
+  //     response.json(userAbilitiesRecords)
+  //   })
+}
+const fetchInvitations = (request, response)=>{
+
+}
+
+
 
 apiRouter
   .get('/users', fetchUsers)
