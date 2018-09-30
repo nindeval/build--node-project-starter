@@ -13,8 +13,12 @@ const userAbilitiesDataRows = [
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
   return knex('user_abilities').del()
-    .then(function () {
+    .then(async function () {
       // Inserts seed entries
-      return knex('user_abilities').insert(userAbilitiesDataRows);
+      await knex('user_abilities').insert(userAbilitiesDataRows);
+      await knex.raw(`SELECT SETVAL('user_abilities_id_seq', MAX(id)) FROM user_abilities`)
+      return knex
+
+
     });
 };

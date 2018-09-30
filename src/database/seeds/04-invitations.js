@@ -7,8 +7,10 @@ const userInvitationsDataRows = [
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
   return knex('user_invitations').del()
-    .then(function () {
+    .then(async function () {
       // Inserts seed entries
-      return knex('user_invitations').insert(userInvitationsDataRows);
+      await knex('user_invitations').insert(userInvitationsDataRows);
+      await knex.raw(`SELECT SETVAL('user_invitations_id_seq', MAX(id)) FROM user_invitations`)
+      return knex
     });
 };

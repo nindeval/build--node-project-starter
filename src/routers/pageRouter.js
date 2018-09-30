@@ -1,11 +1,12 @@
 const Router = require('express').Router;
 const fs = require('fs-extra')
 
+
 const pageRouter = Router()
 
 pageRouter
   .get('/', (request, response)=>{
-      response.render('homepage.ejs')
+      response.render('reactApp.ejs')
 })
 
 // pageRouter

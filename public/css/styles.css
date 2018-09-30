@@ -1,0 +1,98 @@
+* {
+  color: #546e7a;
+}
+
+rem {
+  font-size: 16px;
+}
+
+/*    React-Materialize default changes     */
+nav {
+  font-size: 1rem;
+  font-weight: 500;
+   /* background : #78909c; */
+   /* aqua #00BCB7 */  /* aqualight #3FE8D6 */ /* Purple #4236dd;   hover #2C20C0 */
+}
+
+nav i {
+  color: #ffffff;
+}
+
+nav .sidenav a {
+  /* font-variant: small-caps; */
+}
+
+.clear {
+   clear: both;
+}
+
+/*** Materialize ***/
+.tabs {
+  font-variant: small-caps;
+}
+
+/** Forms  **/
+.title-form {
+  font-variant: small-caps;
+}
+.text-float-button{
+  margin-top: 2rem;
+}
+.text-float-button a{
+  margin-left: 1rem
+}
+
+
+button i {
+  color: #FFFFFF;
+}
+
+/** Dashboard **/
+.user-card {
+}
+.user-card-abilities-title p{
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+.user-card-abilities-title small{
+  margin-bottom: 1rem;
+}
+.user-card-abilities {
+  margin: 1rem 0;
+}
+.user-card-abilities button {
+  margin: 0.4rem;
+}
+.user-card-invitation-status{
+  margin: 1rem;
+}
+.user-card-invitation-status small{
+  border: 1px #E8E8E8 solid;
+  padding: .5rem;
+  border-radius: 5px;
+}
+
+/**  hasabilities-header  **/
+.haswantsabilities-modal{
+  border-radius: 5px;
+}
+.haswantsabilities-header{
+  font-variant: small-caps;
+  background: #f1f1f1;
+  padding: 1rem 0;
+}
+.haswantsabilities-content{
+  padding: 2rem 2rem;
+}
+.haswantsabilities-footer{
+  padding: 2rem 0 0;
+}
+
+/** Page Not Found **/
+.header--404{
+  margin: 10rem 0 0;
+}
+.header--404 span{
+  font-size: 1.5rem;
+}
+/** Icons */

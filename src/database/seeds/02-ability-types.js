@@ -19,8 +19,11 @@ const abilityTypeDataRows = [
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
   return knex('ability_types').del()
-    .then(function () {
+    .then(async function () {
       // Inserts seed entries
-      return knex('ability_types').insert(abilityTypeDataRows);
+      await knex('ability_types').insert(abilityTypeDataRows);
+      await knex.raw(`SELECT SETVAL('ability_types_id_seq', MAX(id)) FROM ability_types`)
+      return knex
+
     });
 };

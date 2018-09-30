@@ -3,16 +3,14 @@ const apiRouter = Router()
 const User = require('../models/User.js')
 const AbilityType = require('../models/AbilityType.js')
 
-
-apiRouter.get('/', (resquest, response)=>{
+const ShowRouteListings = (resquest, response)=>{
   response.json({
     '/api/users' : 'Show users',
     '/api/ability_types ' : 'Show competencies',
     '/api/user_abilities' : 'Show abilites',
     '/api/invitations' : 'Show invitations'
   })
-})
-
+}
 const fetchUsers = (request, response)=>{
   User.query()
     .eager('theAbilityTypes')
@@ -71,6 +69,7 @@ const fetchInvitations = (request, response)=>{
 
 
 apiRouter
+  .get('/', ShowRouteListings)
   .get('/users', fetchUsers)
   .get('/ability_types', fetchAbilityTypes)
   .get('/user_abilities', fetchUserAbilities)
