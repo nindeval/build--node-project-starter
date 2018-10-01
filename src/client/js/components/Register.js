@@ -37,7 +37,7 @@ class Register extends Component {
             <Input type="file" label="buscar" s={12} multiple placeholder="Muéstranos tu mejor selfie ;)" />
             <div className="text-float-button valign-wrapper right">
                 <small className="#">Siguiente </small>
-                <a href="/autent" className="btn-floating btn-large waves-effect waves-light gray right">
+                <a href="/tus-habilidades" className="btn-floating btn-large waves-effect waves-light gray right">
                 <Icon className="material-icons">arrow_forward</Icon></a>
             </div>
           </div>

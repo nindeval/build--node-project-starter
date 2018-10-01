@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
+import PubSub from "pubsub-js"
+
 import Nav from './components/NavBar.js'
 // import NavDash from './components/NavDash.js'
 
@@ -15,32 +17,31 @@ import Dashboard from './components/Dash.js'
 import NoMatch404 from './components/NoMatch404.js'
 
 
-const DynamicRoute = (props) => {
-  const styleObj = {padding: '3rem', fontSize: '6vw', color: '#0E6655'}
-  return <h2 style={styleObj}>Dynamic Route: <u>{props.match.params.routeVal}</u></h2>
-}
-
-const DemoComponent = () => {
-  const styleObj = {padding: '3rem', fontSize: '6vw', color: 'slateblue'}
-  return <h2 style={styleObj}>Demo Route U</h2>
-}
-
-
-const SelectedAbilities = () => {
-  const styleObj = {padding: '3rem', fontSize: '6vw', color: 'slateblue'}
-  return <h2 styleObj={styleObj}> Selected Abilities</h2>
-}
-
-
 class App extends React.Component {
+  constructor(){
+    super()
+    this.state = {
+      currentUser : {}
+    }
+  }
+
+  componentDidMount(){
+    const component = this
+    PubSub.subscribe("updateState", (evtName, newStateOb)=>{
+      if(typeof newStateOb !== "object" ) return
+      component.setState(newStateOb)
+    })
+  }
+
   render (){
+    let navbarComponent = <Nav appState={this.state}/>
+    if(this.state.currentUser.email){
+      navbarComponent = <NavDash appState={this.state}/>
+    }
     return (
       <div>
-        <Nav />
+        {navbarComponent}
         <Switch>
-          <Route path='/dashboard-select-abilities' component={SelectedAbilities}/>
-          <Route path='/ex/:routeVal' component={DynamicRoute}/>
-          <Route path='/demo' component={DemoComponent}/>
           <Route exact path='/' component={Home}/>
           <Route exact path='/ingresa' component={Login}/>
           <Route exact path='/enhorabuena' component={Authentication}/>

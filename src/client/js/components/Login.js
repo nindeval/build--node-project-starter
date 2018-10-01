@@ -32,7 +32,7 @@ class Login extends Component {
               </div>
               <div className="clear"></div>
               <div>
-                <small>¿No te has registrado?<Link to="/"> Regístrate aquí</Link></small>
+                <small>¿No te has registrado?<Link to="/enhorabuena"> Regístrate aquí</Link></small>
               </div>
             </Col>
           </div>

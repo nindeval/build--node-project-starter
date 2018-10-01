@@ -25,7 +25,7 @@ class hasAbilities extends Component {
               <div className="clear"></div>
               <div className="text-float-button valign-wrapper right">
                   <small className="#">Siguiente </small>
-                  <a href="/autent" className="btn-floating btn-large waves-effect waves-light gray right">
+                  <a href="/habilidades-de-interes" className="btn-floating btn-large waves-effect waves-light gray right">
                   <Icon className="material-icons">arrow_forward</Icon></a>
               </div>
              </div>
