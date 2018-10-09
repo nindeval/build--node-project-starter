@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
+import NotificationSystem from 'react-notification-system'
+import request from 'superagent'
+
 import {Link} from "react-router-dom"
 import { Row, Col, Input, Icon } from 'react-materialize'
 
-class Register extends Component {
+class RegistrationAdditional extends Component {
+
+
   render(){
     return (
       <div className='Register'>
@@ -26,7 +31,6 @@ class Register extends Component {
               // <Input s={10} label="Calle" validate></Input>
               // <Input s={2} label="Número" validate />
               // <Input s={4} label="Colonia" validate></Input>
-              //
               // <Input s={4} label="Estado" validate />
             }
             <Input s={4} label="Delegación" validate />
@@ -46,4 +50,4 @@ class Register extends Component {
     )
   }
 }
-export default Register;
+export default RegistrationAdditional;

@@ -4,7 +4,7 @@ const Bcrypt = require('bcryptjs')
 const RECOMMENDED_ROUNDS = 12
 
 const userDataRows = [
-  {id: 1, email: 'alex@mail.com', password: Bcrypt.hashSync('pw111' , RECOMMENDED_ROUNDS), firstname: 'Alex', lastname: 'Enriquez', delegacion: 'Cuautemoc', zipcode: '06500', city: 'cdmx', image: 'https://avatars2.githubusercontent.com/u/17577546?s=400&u=17045465a7f89024551f6c4ebc51b884c5c9c1f9&v=4'},
+    {id: 1, email: 'alex@mail.com', password: Bcrypt.hashSync('pw111' , RECOMMENDED_ROUNDS), firstname: 'Alex', lastname: 'Enriquez', delegacion: 'Cuautemoc', zipcode: '06500', city: 'cdmx', image: 'https://avatars2.githubusercontent.com/u/17577546?s=400&u=17045465a7f89024551f6c4ebc51b884c5c9c1f9&v=4'},
 
   {id: 2, email: 'diana@mail.com', password: Bcrypt.hashSync('pw222' , RECOMMENDED_ROUNDS), firstname: 'Diana', lastname: 'Dominguez', delegacion: 'Cuautemoc', zipcode: '06500', city: 'cdmx', image: 'https://avatars2.githubusercontent.com/u/17577546?s=400&u=17045465a7f89024551f6c4ebc51b884c5c9c1f9&v=4'},
 
