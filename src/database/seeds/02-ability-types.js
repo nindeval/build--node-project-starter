@@ -14,7 +14,11 @@ const abilityTypeDataRows = [
   { id: 13, name:'Cocina'},
   { id: 14, name:'Yoga'},
   { id: 15, name:'Guitarra'},
-  { id: 16, name:'Bicicleta'}
+  { id: 16, name:'Bicicleta'},
+  { id: 17, name:'JavaScript'},
+  { id: 18, name:'Natación'},
+  { id: 19, name:'Pilates'},
+  { id: 20, name:'Bordado'},
 ]
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries

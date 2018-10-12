@@ -17,8 +17,8 @@ class User extends Password(Model) {
 
   static get relationMappings(){
     const AbilityType = require('./AbilityType.js')
-
-    return{
+    const UserAbility = require("./UserAbility")
+    return {
       theAbilityTypes: {
         relation: Model.ManyToManyRelation,
         modelClass: AbilityType,
@@ -29,6 +29,14 @@ class User extends Password(Model) {
             to: 'user_abilities.ability_type_id'
           },
           to: 'ability_types.id'
+        }
+      },
+      userAbilityJoin : {
+        relation: Model.HasManyRelation,
+        modelClass: UserAbility,
+        join: {
+          from: 'users.id',
+          to: 'user_abilities.user_id'
         }
       }
     }

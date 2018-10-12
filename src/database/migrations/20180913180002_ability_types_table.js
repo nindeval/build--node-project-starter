@@ -5,7 +5,7 @@ exports.up = function(knex, Promise) {
     .createTable('ability_types', (abilityTypesTable)=>{
         abilityTypesTable.increments()
         abilityTypesTable.string('name')
-        abilityTypesTable.timestamp(true, true)
+        abilityTypesTable.timestamps(true, true)
 
         return abilityTypesTable
     })
